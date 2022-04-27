@@ -5,8 +5,5 @@ Description=Start the blurbcloud server
 ExecStart=/home/blurb/blurbcloud
 WorkingDirectory=/home/blurb
 
-[Socket]
-ListenStream=0.0.0.0:22000/*
-
 [Install]
 WantedBy=blurbcloud.target

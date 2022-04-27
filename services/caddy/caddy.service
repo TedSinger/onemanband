@@ -2,7 +2,7 @@
 Description=Start the caddy server
 
 [Service]
-ExecStart=/home/blurb/caddy --config /home/blurb/priory/services/caddy/Caddyfile
+ExecStart=/home/blurb/caddy run --config /home/blurb/priory/services/caddy/Caddyfile
 WorkingDirectory=/home/blurb
 
 [Socket]
