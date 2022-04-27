@@ -1,2 +1,4 @@
-rsync -e "ssh -i '/home/ted/Documents/secrets/blurbcloud_rsa'" -rA --delete . root@blurb.cloud:/home/blurb/priory
-ssh -i '/home/ted/Documents/secrets/blurbcloud_rsa' root@blurb.cloud 'sudo -u blurb CWD=/home/blurb/priory /home/blurb/priory/install-services.sh'
+KEYFILE=/home/ted/Documents/secrets/blurbcloud_rsa
+REMOTE_PRIORY_ROOT=/home/blurb/priory
+rsync -e "ssh -i '$KEYFILE'" -rA --delete . root@blurb.cloud:$REMOTE_PRIORY_ROOT
+ssh -i $KEYFILE root@blurb.cloud "sudo -u blurb CWD=$REMOTE_PRIORY_ROOT $REMOTE_PRIORY_ROOT/install-services.sh"
