@@ -2,11 +2,8 @@
 Description=Start the caddy server
 
 [Service]
-ExecStart=/home/blurb/caddy run --config /home/blurb/priory/services/caddy/Caddyfile
+ExecStart=/home/blurb/caddy run --config /home/blurb/priory/Caddyfile
 WorkingDirectory=/home/blurb
-
-[Socket]
-ListenStream=0.0.0.0:80/*
 
 [Install]
 WantedBy=caddy.target
