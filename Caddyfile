@@ -1,6 +1,0 @@
-localhost
-{
-    respond "hello, world!"
-}
-
-import services/*/Caddyfile

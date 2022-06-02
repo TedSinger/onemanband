@@ -1,0 +1,9 @@
+[Unit]
+Description=Serve Blurbs
+
+[Service]
+ExecStart=/home/blurbu/blurbcloud/blurbcloud
+WorkingDirectory=/home/blurbu/blurbcloud
+
+[Install]
+WantedBy=blurbcloud.target

@@ -1,0 +1,11 @@
+
+{
+    skip_install_trust
+}
+
+localhost
+{
+    respond "hello, world!"
+}
+# named .root to avoid accidental recursion here
+import ../*/Caddyfile

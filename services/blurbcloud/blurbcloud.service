@@ -1,9 +1,0 @@
-[Unit]
-Description=Start the blurbcloud server
-
-[Service]
-ExecStart=/home/blurb/blurbcloud
-WorkingDirectory=/home/blurb
-
-[Install]
-WantedBy=blurbcloud.target

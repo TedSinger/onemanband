@@ -1,9 +1,0 @@
-[Unit]
-Description=Start the caddy server
-
-[Service]
-ExecStart=/home/blurb/caddy run --config /home/blurb/priory/Caddyfile
-WorkingDirectory=/home/blurb
-
-[Install]
-WantedBy=caddy.target
