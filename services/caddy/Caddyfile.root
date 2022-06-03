@@ -1,0 +1,12 @@
+
+{
+    skip_install_trust
+}
+
+http://134.122.117.117
+{
+    respond "hello, world!"
+}
+
+# This file is named .root to avoid accidental recursion here
+import ../*/Caddyfile

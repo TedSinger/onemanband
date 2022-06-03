@@ -1,4 +1,4 @@
 dbs:
-  - path: /home/blurbu/blurbcloud/blurbs.db
+  - path: /home/blurbcloud/blurbcloud/blurbs.db
     replicas:
       - url: s3://blurbcloud.nyc3.digitaloceanspaces.com/blurbs.db

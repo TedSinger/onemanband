@@ -1,7 +1,7 @@
 #!/bin/sh
 echo install-user-services $USER
 cd
-for installer in $(tree -if $CWD/services/$USER | grep 'install.sh$'); do
+for installer in $(tree -if $CWD/services/$USER | grep '.install$'); do
     echo $installer
     $installer
 done
@@ -18,7 +18,7 @@ for name_eq_value in $(cat $CWD/services/$USER/vars-to-set.env 2>/dev/null || ec
     systemctl --user set-environment $name_eq_value
 done
 
-systemctl --user link $CWD/services/$USER/*/*.service
+systemctl --user link $CWD/services/$USER/*.service
 systemctl --user enable $(tree -i $CWD/services/$USER | grep '\.service$')
 
 systemctl --user daemon-reload

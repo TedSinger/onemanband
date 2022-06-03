@@ -1,0 +1,9 @@
+[Unit]
+Description=replicate blurbs to a space
+
+[Service]
+ExecStart=/usr/bin/litestream replicate -config /home/priory/services/blurbcloud/litestream.yml
+WorkingDirectory=/home/blurbcloud/
+
+[Install]
+WantedBy=litestream.target
