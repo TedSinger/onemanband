@@ -1,5 +1,7 @@
 [Unit]
 Description=Serve Blurbs
+After=litestream-restore.service
+Requires=litestream-restore.service
 
 [Service]
 ExecStart=/home/blurbcloud/blurbcloud/blurbcloud

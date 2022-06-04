@@ -1,0 +1,11 @@
+[Unit]
+Description=restore blurb.db from space
+
+[Service]
+ExecStart=/bin/bash -c '/usr/bin/litestream restore -o /tmp/foo.db s3://blurbcloud.nyc3.digitaloceanspaces.com/blurbs.db && mv /tmp/foo.db /home/blurbcloud/blurbcloud/blurbs.db'
+WorkingDirectory=/home/blurbcloud/
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=litestream-restore.target
