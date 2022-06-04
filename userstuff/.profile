@@ -6,7 +6,6 @@ if [ "$BASH" ]; then
   fi
 fi
 
-mesg n || true
 
 loginctl enable-linger $USER
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
