@@ -23,6 +23,13 @@ systemctl --user enable $(tree -i $CWD/services/$USER | grep '\.service$')
 
 systemctl --user daemon-reload
 
+DEFUNCT_SERVICES=$(systemctl --user list-units --state=not-found -o json | jq -r 'map(select(.sub == "running")) | map(.unit) | join(" ")')
+if [ $DEFUNCT_SERVICES ]; then
+    echo cleaning up defunct services: $DEFUNCT_SERVICES
+    systemctl --user stop $DEFUNCT_SERVICES
+    systemctl --user disable $DEFUNCT_SERVICES
+fi
+
 systemctl --user restart $(tree -i $CWD/services/$USER | grep '\.service$')
 
 echo restarted services for $USER
