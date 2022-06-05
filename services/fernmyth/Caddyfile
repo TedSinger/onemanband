@@ -1,0 +1,5 @@
+fernmyth.net
+{
+    root * /home/fernmyth/fernmyth-public/
+    file_server
+}
