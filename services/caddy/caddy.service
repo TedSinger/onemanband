@@ -2,7 +2,7 @@
 Description=Start the caddy server
 
 [Service]
-ExecStart=/usr/local/bin/caddy run --config /home/priory/services/caddy/Caddyfile.root
+ExecStart=/usr/local/bin/caddy run --config /home/onemanband/services/caddy/Caddyfile.root
 ExecStop=/usr/local/bin/caddy stop
 WorkingDirectory=/home/caddy
 
