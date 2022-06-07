@@ -1,0 +1,3 @@
+#!/bin/bash
+output=$(systemd-analyze verify services/*/*.service 2>&1)
+test "$output" == ''
