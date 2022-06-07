@@ -1,0 +1,2 @@
+#!/bin/sh
+caddy validate -config services/*/Caddyfile*
