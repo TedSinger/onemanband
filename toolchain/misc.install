@@ -1,2 +1,2 @@
 #!/bin/sh
-apt install -y dbus-user-session tree jq
+apt install -y dbus-user-session tree jq shellcheck

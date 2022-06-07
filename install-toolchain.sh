@@ -1,4 +1,4 @@
 #!/bin/sh
-for installer in `ls toolchain`; do
-    toolchain/$installer
+for installer in toolchain/*; do
+    toolchain/"$installer"
 done

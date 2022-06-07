@@ -1,3 +1,4 @@
+#!/bin/sh
 git clone https://github.com/TedSinger/fernmyth-public
 cd fernmyth-public
 git pull origin master --rebase
