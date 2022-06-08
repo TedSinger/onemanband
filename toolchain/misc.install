@@ -1,2 +1,6 @@
 #!/bin/sh
-apt install -y dbus-user-session tree jq shellcheck
+
+dpkg -l dbus-user-session >/dev/null || apt install -y dbus-user-session
+dpkg -l tree >/dev/null || apt install -y tree
+dpkg -l jq >/dev/null || apt install -y jq
+dpkg -l shellcheck >/dev/null || apt install -y shellcheck
