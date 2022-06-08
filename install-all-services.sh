@@ -11,10 +11,12 @@ done
 
 if [ $failure -eq 0 ]; then
     echo All checks passed. Installing services...
-    export CWD=$(pwd)
-    for envvar in $(cat secrets.env); do
-        export $envvar
-    done
+    CWD=$(pwd)
+    export CWD
+
+    set -o allexport
+    . "$CWD"/secrets.env
+    set +o allexport
 
     for USER in services/*; do
         USER="$(basename "$USER")"
