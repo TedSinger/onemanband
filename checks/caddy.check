@@ -1,2 +1,5 @@
 #!/bin/sh
-caddy validate -config services/*/Caddyfile*
+output=$(caddy validate -config services/*/Caddyfile* 2>&1)
+if [ "$?" -ne 0 ]; then
+    echo "$output"
+fi

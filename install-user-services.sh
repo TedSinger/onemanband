@@ -1,5 +1,4 @@
 #!/bin/sh
-echo install-user-services "$USER"
 cd
 for installer in $(tree -if "$CWD"/services/"$USER" | grep '.install$'); do
     echo "$installer"
@@ -19,19 +18,21 @@ for name_eq_value in $(cat "$CWD"/services/"$USER"/vars-to-set.env 2>/dev/null |
     systemctl --user set-environment "$name_eq_value"
 done
 
-systemctl --user link "$CWD"/services/"$USER"/*.service
-systemctl --user enable "$(tree -i "$CWD"/services/"$USER" | grep '\.service$')"
+
+for service in $(tree -i "$CWD"/services/"$USER" | grep '\.service$'); do
+    systemctl --user link "$CWD"/services/"$USER"/"$service"
+    systemctl --user enable "$service"
+done
 
 systemctl --user daemon-reload
 
-# convert to a loop
-DEFUNCT_SERVICES=$(systemctl --user list-units --state=not-found -o json | jq -r 'map(select(.sub == "running")) | map(.unit) | join(" ")')
-if [ "$DEFUNCT_SERVICES" ]; then
-    echo cleaning up defunct services: "$DEFUNCT_SERVICES"
-    systemctl --user stop $DEFUNCT_SERVICES
-    systemctl --user disable $DEFUNCT_SERVICES
-fi
+DEFUNCT_SERVICES=$(systemctl --user list-units --state=not-found -o json | jq -r 'map(select(.sub == "running")) | map(.unit) | join("\n")')
+for d_service in $DEFUNCT_SERVICES; do
+    echo cleaning up defunct service: "$d_service"
+    systemctl --user stop "$d_service"
+    systemctl --user disable "$d_service"
+done
 
-systemctl --user restart "$(tree -i "$CWD"/services/"$USER" | grep '\.service$')"
-
-echo restarted services for "$USER"
+for service in $(tree -i "$CWD"/services/"$USER" | grep '\.service$'); do
+    systemctl --user restart "$service"
+done
