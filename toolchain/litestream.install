@@ -1,5 +1,5 @@
 #!/bin/sh
-which litestream || (
+(which litestream >/dev/null) || (
     wget https://github.com/benbjohnson/litestream/releases/download/v0.3.8/litestream-v0.3.8-linux-amd64.deb \
     && dpkg -i litestream-v0.3.8-linux-amd64.deb
 )

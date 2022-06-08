@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cd "$HOME" || exit
 for installer in $(tree -if "$CWD"/services/"$USER" | grep '.install$'); do
     echo "$installer"
