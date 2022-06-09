@@ -1,7 +1,7 @@
 #!/bin/sh
 
-(which caddy >/dev/null) || (
-    apt install -y dbus-user-session libnss3-tools
+(command -v caddy >/dev/null) || (
+    apt install -y libnss3-tools
     wget 'https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=18430356115926' \
     && mv 'download?os=linux&arch=amd64&idempotency=18430356115926' /usr/local/bin/caddy \
     && chmod +x /usr/local/bin/caddy \
