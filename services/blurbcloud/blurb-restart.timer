@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically trigger blurbcloud restart
+
+[Timer]
+Unit=blurb-restart.service
+OnCalendar=*-*-* 00:01:*
+
+[Install]
+WantedBy=timers.target

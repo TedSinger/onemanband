@@ -19,7 +19,8 @@ for name_eq_value in $(cat "$CWD"/services/"$USER"/vars-to-set.env 2>/dev/null |
 done
 
 
-for service in $(tree -i "$CWD"/services/"$USER" | grep '\.service$'); do
+for service in $(tree -i "$CWD"/services/"$USER" | grep -E '\.(service|timer)$'); do
+    echo $service
     systemctl --user link "$CWD"/services/"$USER"/"$service"
     systemctl --user enable "$service"
 done

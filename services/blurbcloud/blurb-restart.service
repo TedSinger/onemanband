@@ -1,0 +1,9 @@
+[Unit]
+Description=Restart blurbcloud
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/systemctl restart blurbcloud.service
+
+[Install]
+WantedBy=blurbcloud.target
