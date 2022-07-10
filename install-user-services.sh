@@ -34,6 +34,6 @@ for d_service in $DEFUNCT_SERVICES; do
     systemctl --user disable "$d_service"
 done
 
-for service in $(tree -i "$CWD"/services/"$USER" | grep '\.service$'); do
+for service in $(tree -i "$CWD"/services/"$USER" | grep '\.(service|timer)$'); do
     systemctl --user restart "$service"
 done
